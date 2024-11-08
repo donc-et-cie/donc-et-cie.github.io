@@ -3,16 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historique</title>
+    <title>Donc & Cie™ - Historique des comptages</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <ul>
-        <li>
-            <p>Soon</p>
-        </li>
-        <li>
-            <p>Bientôt</p>
-        </li>
-    </ul>
+    <header>
+        <h1>Historique des comptages</h1>
+        <p>Voici l'historique des comptages effectués par <b>Donc & Cie™</b>.</p>
+    </header>
+    
+    <section>
+        <h2>Donc</h2>
+        <!-- Tableau pour afficher les données CSV -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Nombre de "Donc"</th>
+                </tr>
+            </thead>
+            <tbody id="csv-data">
+                <!-- Les données du CSV seront ajoutées ici dynamiquement -->
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Euh</h2>
+        <!-- Nouveau tableau pour afficher les nouvelles données CSV -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Nombre de "Euh"</th>
+                </tr>
+            </thead>
+            <tbody id="csv-data-2">
+                <!-- Les données du CSV seront ajoutées ici dynamiquement -->
+            </tbody>
+        </table>
+    </section>
+    
+
+    <footer id="contact">
+        <p>Vous avez des questions ? N'hésitez pas à nous contacter sur nos comptes Instagram <a href="https://www.instagram.com/combiendefoismrlhommeaditdonc_" target="_blank">"combiendefoismrlhommeaditdonc_"</a> et <a href="https://www.instagram.com/combien2foisvareillaudaditeuh" target="_blank">"combien2foisvareillaudaditeuh"</a>.</p>
+        <p>© 2024 Donc & Cie™. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Exemple de données CSV sous forme de tableau (tu peux remplacer par un fichier CSV ou lire un fichier)
+        const csvData = [
+            ["29/03/2024 (Matin)", "243"],
+            ["29/03/2024 (Après-midi)", "251"],
+            ["04/04/2024", "297"],
+            ["05/04/2024", "233"],
+            ["08/04/2024", "216"],
+            ["11/04/2024", "182"],
+            ["29/04/2024", "121"],
+            ["02/05/2024", "238"],
+            ["03/05/2024", "217"],
+            ["13/05/2024", "161"],
+            ["16/05/2024", "247"],
+            ["17/05/2024", "170"],
+            ["24/05/2024 (Matin)", "145"],
+            ["24/05/2024 (Après-midi)", "163"],
+            ["30/05/2024", "154"],
+            ["31/05/2024", "194"]
+        ];
+
+        // Fonction pour afficher les données CSV dans le tableau
+        function displayCSVData() {
+            const tableBody = document.getElementById('csv-data');
+            csvData.forEach(row => {
+                const tr = document.createElement('tr');
+                const tdDate = document.createElement('td');
+                const tdValue = document.createElement('td');
+                
+                tdDate.textContent = row[0];  // La date
+                tdValue.textContent = row[1];  // La valeur (nombre de "Donc")
+                
+                tr.appendChild(tdDate);
+                tr.appendChild(tdValue);
+                tableBody.appendChild(tr);
+            });
+        }
+
+        // Appeler la fonction pour afficher les données lors du chargement de la page
+        window.onload = displayCSVData;
+
+        // Exemple de données CSV pour le second tableau
+        const csvData2 = [
+            ["11/10/2024", "140"],
+            ["08/11/2024", "167"]
+        ];
+
+        // Fonction pour afficher les données CSV dans le second tableau
+        function displayCSVData2() {
+            const tableBody2 = document.getElementById('csv-data-2');
+            csvData2.forEach(row => {
+                const tr = document.createElement('tr');
+                const tdDate = document.createElement('td');
+                const tdValue = document.createElement('td');
+                
+                tdDate.textContent = row[0];  // La date
+                tdValue.textContent = row[1];  // La valeur (nombre de "Donc")
+                
+                tr.appendChild(tdDate);
+                tr.appendChild(tdValue);
+                tableBody2.appendChild(tr);
+            });
+        }
+
+        // Appeler la fonction pour afficher les données lors du chargement de la page
+        window.onload = function() {
+            displayCSVData();  // Appeler la fonction du premier tableau
+            displayCSVData2(); // Appeler la fonction du deuxième tableau
+        };
+
+    </script>
 </body>
 </html>
