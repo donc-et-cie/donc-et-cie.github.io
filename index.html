@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nom de l'Entreprise</title>
+    <title>Donc & Cie™</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Nom de l'Entreprise</h1>
-        <p class="tagline">Votre partenaire de confiance pour réussir.</p>
+        <h1>Donc & Cie™</h1>
+        <p class="tagline">Nous comptons ce qui compte.</p>
     </header>
     
     <nav>
@@ -17,28 +17,126 @@
             <li><a href="#about">À propos</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#achievements">Nos exploits</a></li>
+            <li><a href="historique.html">Historique</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
+    <!-- Grille d'affichage des décomptes -->
+    <div class="count-grid">
+        <div class="count-item">
+            <h3>Aujourd'hui, Mr Lhomme a dit</h3>
+            <p><span>247</span> fois "donc"</p>
+            <h6>Mis à jour le 16 mai 2024</h6>
+        </div>
+        <div class="count-item">
+            <h3>Aujourd'hui, Mr Vareillaud a dit</h3>
+            <p><span>167</span> fois "euh"</p>
+            <h6>Mis à jour le 8 novembre 2024</h6>
+        </div>
+    </div>
+
     <section id="about">
         <h2>À propos de nous</h2>
-        <p>Notre entreprise est dédiée à offrir les meilleurs services dans le domaine, avec une équipe d'experts engagés et passionnés.</p>
+        <p>Chez <b>Donc & Cie™</b>, nous sommes spécialisés dans la collecte et l'analyse de statistiques, qu'il s'agisse des particularités pédagogiques ou de dynamiques scolaires.</p>
     </section>
 
     <section id="services">
         <h2>Nos services</h2>
-        <p>Nous offrons une gamme de services adaptés à vos besoins, allant du conseil stratégique à l'implémentation technique.</p>
+        <p>Nous visons à fournir les statistiques et analyses les plus fiables possible. Pour cela, nous avons monté une équipe de professionnels. Notre équipe est majoritairement spécialisée dans le comptage de mots récurrents ("donc", "euh", ...).</p>
     </section>
 
     <section id="achievements">
         <h2>Nos exploits</h2>
-        <p>Notre entreprise a réalisé de nombreux projets de grande envergure, en collaborant avec des partenaires réputés et en garantissant la satisfaction de nos clients.</p>
+        <p>Notre entreprise a réalisé de nombreux projets de grande envergure : voici la preuve en image.</p>
+    
+        <!-- Grille d'images -->
+        <div class="image-grid">
+            <div class="image-container" data-caption='Recto de la fiche de comptage de "donc" (année scolaire 2023-2024)'>
+                <img src="image1.webp" alt="Exploit 1">
+            </div>
+            <div class="image-container" data-caption='Verso de la fiche de comptage de "donc" (année scolaire 2023-2024)'>
+                <img src="image2.webp" alt="Exploit 2">
+            </div>
+            <div class="image-container" data-caption='8 novembre 2024 : notre compte Instagram "combien2foisvareillaudaditeuh" dépasse les 71 abonnés'>
+                <img src="image3.webp" alt="Exploit 3">
+            </div>
+            <div class="image-container" data-caption="Exploit à venir">
+                <img src="image4.jpg" alt="Exploit 4">
+            </div>
+            <div class="image-container" data-caption="Exploit à venir">
+                <img src="image5.jpg" alt="Exploit 5">
+            </div>
+        </div>
     </section>
 
     <footer id="contact">
         <h2>Contactez-nous</h2>
-        <p>Vous avez des questions ? N'hésitez pas à nous contacter par email ou téléphone. Nous serons ravis de vous aider.</p>
+        <p>Vous avez des questions ? N'hésitez pas à nous contacter sur nos comptes Instagram <a href="https://www.instagram.com/combiendefoismrlhommeaditdonc_" target="_blank">"combiendefoismrlhommeaditdonc_"</a> et <a href="https://www.instagram.com/combien2foisvareillaudaditeuh" target="_blank">"combien2foisvareillaudaditeuh"</a>.</p>
     </footer>
+
+
+
+    <script>
+        // Sélectionner toutes les images
+        const images = document.querySelectorAll('.image-container img');
+        
+        // Créer un conteneur pour l'image en plein écran
+        const fullscreenDiv = document.createElement('div');
+        fullscreenDiv.id = 'fullscreen-img';
+        
+        // Lorsque l'image est cliquée, l'afficher en plein écran
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                const captionText = img.parentElement.getAttribute('data-caption'); // Récupère la légende
+                fullscreenDiv.style.display = 'flex';
+                const imgClone = img.cloneNode(); // Clone l'image
+                const caption = document.createElement('div'); // Crée la div pour la légende
+                caption.classList.add('caption');
+                caption.innerText = captionText; // Ajoute la légende
+    
+                fullscreenDiv.innerHTML = '';  // Vide le div pour l'image et la légende
+                fullscreenDiv.appendChild(imgClone); // Ajoute l'image clonée
+                fullscreenDiv.appendChild(caption); // Ajoute la légende
+                document.body.appendChild(fullscreenDiv);
+            });
+        });
+    
+        // Fermer l'image en plein écran lorsque l'utilisateur clique dessus
+        fullscreenDiv.addEventListener('click', () => {
+            fullscreenDiv.style.display = 'none';
+        });
+    </script>
+
+    <script>
+        // Fonction d'animation de l'incrémentation
+        function animateNumber(element, endValue, duration) {
+            const startValue = 0;
+            const range = endValue - startValue;
+            const stepTime = duration / range; // Calcule le temps par incrémentation
+            let currentValue = startValue;
+            
+            const interval = setInterval(() => {
+                currentValue++;
+                element.innerText = currentValue; // Mette à jour le nombre affiché
+                
+                if (currentValue === endValue) {
+                    clearInterval(interval); // Arrêter l'animation lorsque la valeur cible est atteinte
+                }
+            }, stepTime);
+        }
+
+        // Cibler les balises <span> qui contiennent les nombres à animer
+        document.querySelectorAll('.count-item span').forEach(span => {
+            const number = parseInt(span.innerText, 10); // Récupérer la valeur actuelle du nombre
+            animateNumber(span, number, 2000); // Animer l'incrémentation sur 2 secondes
+        });
+    </script>
+
+
+    
+
+
+
 </body>
 </html>
