@@ -264,3 +264,22 @@ th, td {
     border-bottom: 1px solid #ddd;
     width: 50%; /* ou une autre valeur si nécessaire */
 }
+
+/* Style pour le bouton de retour */
+.btn-retour {
+    position: fixed; /* Positionnement fixe par rapport à la fenêtre */
+    top: 20px; /* Décalage du haut */
+    right: 20px; /* Décalage de la droite */
+    background-color: #4CAF50; /* Couleur de fond verte */
+    color: white; /* Couleur du texte */
+    padding: 10px 20px; /* Padding du bouton */
+    text-decoration: none; /* Supprimer le soulignement du lien */
+    border-radius: 5px; /* Bordures arrondies */
+    font-size: 16px; /* Taille du texte */
+    z-index: 1000; /* S'assurer que le bouton est au-dessus des autres éléments */
+    cursor: pointer; /* Ajoute un curseur de type "pointer" pour le rendre interactif */
+}
+
+.btn-retour:hover {
+    background-color: #45a049; /* Changer la couleur en survol */
+}
