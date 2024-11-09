@@ -22,7 +22,7 @@
     </nav>
     
     <section>
-        <h2>Donc</h2>
+        <h2>Mr Lhomme</h2>
         <!-- Tableau pour afficher les données CSV -->
         <table>
             <thead>
@@ -38,7 +38,7 @@
     </section>
 
     <section>
-        <h2>Euh</h2>
+        <h2>Mr Vareillaud</h2>
         <!-- Nouveau tableau pour afficher les nouvelles données CSV -->
         <table>
             <thead>
@@ -48,6 +48,17 @@
                 </tr>
             </thead>
             <tbody id="csv-data-2">
+                <!-- Les données du CSV seront ajoutées ici dynamiquement -->
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Minutes de retard</th>
+                </tr>
+            </thead>
+            <tbody id="csv-data-3">
                 <!-- Les données du CSV seront ajoutées ici dynamiquement -->
             </tbody>
         </table>
@@ -97,9 +108,6 @@
             });
         }
 
-        // Appeler la fonction pour afficher les données lors du chargement de la page
-        window.onload = displayCSVData;
-
         // Exemple de données CSV pour le second tableau
         const csvData2 = [
             ["11/10/2024", "140"],
@@ -123,10 +131,36 @@
             });
         }
 
+        // Exemple de données CSV pour le second tableau
+        const csvData3 = [
+            ["04/10/2024", "9 minutes"],
+            ["08/11/2024", "10 minutes"]
+        ];
+
+        // Fonction pour afficher les données CSV dans le second tableau
+        function displayCSVData3() {
+            const tableBody3 = document.getElementById('csv-data-3');
+            csvData3.forEach(row => {
+                const tr = document.createElement('tr');
+                const tdDate = document.createElement('td');
+                const tdValue = document.createElement('td');
+                
+                tdDate.textContent = row[0];  // La date
+                tdValue.textContent = row[1];  // La valeur (nombre de "Donc")
+                
+                tr.appendChild(tdDate);
+                tr.appendChild(tdValue);
+                tableBody3.appendChild(tr);
+            });
+        }
+
+        
+
         // Appeler la fonction pour afficher les données lors du chargement de la page
         window.onload = function() {
             displayCSVData();  // Appeler la fonction du premier tableau
             displayCSVData2(); // Appeler la fonction du deuxième tableau
+            displayCSVData3();
         };
 
     </script>

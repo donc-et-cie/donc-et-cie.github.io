@@ -30,6 +30,8 @@
         <div class="count-item">
             <h3>Aujourd'hui, Mr Vareillaud a dit</h3>
             <p><span>167</span> fois "euh"</p>
+            <h3>Il est arrivé avec</h3>
+            <p><span>10</span> minutes de retard</p>
             <h6>Mis à jour le 8 novembre 2024</h6>
         </div>
     </div>
@@ -164,7 +166,7 @@
         // Cibler les balises <span> qui contiennent les nombres à animer
         document.querySelectorAll('.count-item span').forEach(span => {
             const number = parseInt(span.innerText, 10); // Récupérer la valeur actuelle du nombre
-            animateNumber(span, number, 2000); // Animer l'incrémentation sur 2 secondes
+            animateNumber(span, number, 1000); // Animer l'incrémentation sur 2 secondes
         });
     </script>
 
